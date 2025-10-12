@@ -6,6 +6,8 @@ import NotFound from './components/NotFound.jsx'
 import Home from './components/Home.jsx'
 import ProductList from './components/ProductList.jsx'
 import Cart from './components/Cart.jsx'
+import About from './components/About.jsx'
+import Profile from './components/Profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -17,13 +19,21 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/products",
+        path: "products",
         element: <ProductList />
+      },
+      {
+        path: "about",
+        element: <About />
       },
       {
         path: "cart",
         element: <Cart />
       },
+      {
+        path: "profile",
+        element: <Profile />
+      }
     ]
   },
   {
