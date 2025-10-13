@@ -1,22 +1,19 @@
-import { HashLoader } from "react-spinners"
+import { Link } from "react-router-dom"
+export default function ProductItem({ product }) {
 
-export default function ProductItem({ product, loading }) {
 
 
   return (
-    <div
-      key={product?.id}
+    <Link
+      to={`/product/${product.id}`}
       className=" w-[160px] md:w-[190px] md:min-h-[300px] bg-[#f8f8f9] p-4 rounded-2xl shadow-xl cursor-pointer">
 
       <div className=" border-b border-[#94979a]">
         <div>
 
           <div className=" flex justify-center items-center min-h-[130px]  md:h-[160px] ">
-            {
-              loading ? <HashLoader /> : <img
-                src={product?.thumbnail}
-                className="" />
-            }
+            <img
+              src={product?.thumbnail} />
           </div>
 
         </div>
@@ -35,6 +32,6 @@ export default function ProductItem({ product, loading }) {
 
         <p className=" text-[11px] font-medium">In Stock: {product?.stock}</p>
       </div>
-    </div>
+    </Link>
   )
 }

@@ -10,6 +10,7 @@ import About from './components/About.jsx'
 import Profile from './components/Profile.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
+import ProductDetails from './components/ProductDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetails />
       }
     ]
   },

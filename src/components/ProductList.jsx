@@ -18,7 +18,7 @@ export default function ProductList() {
                   xl:grid-cols-6">
         {
           products.map(product => (
-            <ProductItem product={product} loading={productLoading} />
+            <ProductItem product={product} key={product.id} />
           ))
         }
       </div>
