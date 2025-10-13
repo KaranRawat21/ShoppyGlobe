@@ -29,27 +29,42 @@ export default function Header() {
 
       {/* Routes to switch pages */}
       <div className="flex gap-10">
-        <NavLink to="/" className="hidden lg:flex justify-center items-center gap-1 " >
+        <NavLink to="/" className={({ isActive }) =>
+          `hidden lg:flex justify-center items-center gap-1 hover:text-[#c436ff] ${isActive ? "text-[#c436ff]" : ""
+          }`
+        } >
           <GoHome className=" text-2xl" />
           HOME
         </NavLink>
 
-        <NavLink to="/products" className="hidden lg:flex justify-center items-center gap-1" >
+        <NavLink to="/products" className={({ isActive }) =>
+          `hidden lg:flex justify-center items-center gap-1 hover:text-[#c436ff] ${isActive ? "text-[#c436ff]" : ""
+          }`
+        } >
           <AiOutlineProduct className=" text-2xl" />
           PRODUCTS
         </NavLink>
 
-        <NavLink to="/about" className="hidden lg:flex justify-center items-center gap-1">
+        <NavLink to="/about" className={({ isActive }) =>
+          `hidden lg:flex justify-center items-center gap-1 hover:text-[#c436ff] ${isActive ? "text-[#c436ff]" : ""
+          }`
+        }>
           <CiViewTimeline className=" text-3xl" />
           ABOUT
         </NavLink>
 
-        <NavLink to="/cart" className="flex justify-center items-center gap-1">
+        <NavLink to="/cart" className={({ isActive }) =>
+          `lg:flex justify-center items-center gap-1 hover:text-[#c436ff] ${isActive ? "text-[#c436ff]" : ""
+          }`
+        }>
           <CiShoppingCart className=" text-3xl" />
           <div className=" hidden lg:block">CART</div>
         </NavLink>
 
-        <NavLink to="profile" className="hidden lg:flex justify-center items-center gap-1 text-white bg-[#1c1b1b] p-3 rounded-md">
+        <NavLink to="profile" className={({ isActive }) =>
+          `hidden lg:flex justify-center items-center gap-1 text-white bg-[#1c1b1b] p-3 rounded-md hover:bg-[#c436ff] transition ${isActive ? "bg-[#c436ff]" : ""
+          }`
+        }>
           <IoPersonOutline className=" text-2xl" />
           PROFILE
         </NavLink>

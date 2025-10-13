@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <div className="flex justify-center">
-      <div className="w-full max-w-[1500px] flex flex-col items-center relative">
+      <div className="w-full max-w-[1650px] flex flex-col items-center relative">
         <Header />
         <Outlet />
         <BottonRoutes />
