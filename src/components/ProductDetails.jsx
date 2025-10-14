@@ -7,12 +7,17 @@ export default function ProductDetails() {
 
   const { id } = useParams();
   const product = useSelector(state => state.allProducts?.products[parseInt(id) - 1]);
-  const cartItems = useSelector(state => state.cartItems.products);
+  const cartItems = useSelector(state => state.cartItems.cart);
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart({ id: product?.id, name: product?.title, thumbnail: product?.thumbnail, price: product?.price }))
   }
+
+  //Checks if the product is already added to cart or not
+  const alreadyInCard = cartItems?.find(item => item?.id === product?.id);
+
+  console.log(alreadyInCard)
 
 
   return (
@@ -56,11 +61,20 @@ export default function ProductDetails() {
         </div>
 
         {/* add to cart button */}
-        <div>
-          <button
-            onClick={() => handleAddToCart(product)}
-            className=" w-full lg:w-[60%] bg-[#dc6a54] p-3 rounded-2xl text-white font-semibold cursor-pointer ">ADD TO CART</button>
-        </div>
+        {
+          !alreadyInCard ?
+            <div>
+              <button
+                onClick={() => handleAddToCart(product)}
+                className=" w-full lg:w-[60%] bg-[#dc6a54] p-3 rounded-2xl text-white font-semibold cursor-pointer ">ADD TO CART</button>
+            </div>
+            : <div className="flex text-3xl">
+              <button className="bg-black px-4 rounded-sm text-white cursor-pointer">-</button>
+              <p className="px-6">{alreadyInCard.count}</p>
+              <button className="bg-black px-4 rounded-sm text-white cursor-pointer">+</button>
+            </div>
+        }
+
 
 
       </div>

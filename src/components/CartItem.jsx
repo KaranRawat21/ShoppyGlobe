@@ -23,9 +23,9 @@ export default function CartItem({ product }) {
 
         {/* count increment/decrement */}
         <div className="flex">
-          <button className="bg-black px-2 rounded-sm text-white cursor-pointer">+</button>
-          <p className="px-4">{product.count}</p>
           <button className="bg-black px-2 rounded-sm text-white cursor-pointer">-</button>
+          <p className="px-4">{product.count}</p>
+          <button className="bg-black px-2 rounded-sm text-white cursor-pointer">+</button>
         </div>
       </div>
     </div>
