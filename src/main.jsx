@@ -7,10 +7,10 @@ import Home from './components/Home.jsx'
 import ProductList from './components/ProductList.jsx'
 import Cart from './components/Cart.jsx'
 import About from './components/About.jsx'
-import Profile from './components/Profile.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
 import ProductDetails from './components/ProductDetails.jsx'
+import Checkout from './components/Checkout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,12 +34,12 @@ const router = createBrowserRouter([
         element: <Cart />
       },
       {
-        path: "profile",
-        element: <Profile />
-      },
-      {
         path: "products/:id",
         element: <ProductDetails />
+      },
+      {
+        path: "checkout",
+        element: <Checkout />
       }
     ]
   },
