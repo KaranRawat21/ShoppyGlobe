@@ -5,7 +5,7 @@ export default function ProductItem({ product }) {
 
   return (
     <Link
-      to={`/product/${product.id}`}
+      to={`/products/${product.id}`}
       className=" w-[160px] md:w-[190px] md:min-h-[300px] bg-[#f8f8f9] p-4 rounded-2xl shadow-xl cursor-pointer">
 
       <div className=" border-b border-[#94979a]">
