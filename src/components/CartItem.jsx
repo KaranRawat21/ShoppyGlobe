@@ -1,6 +1,12 @@
 
-export default function CartItem() {
+export default function CartItem({ product }) {
   return (
-    <div>CartItem</div>
+    <div>
+
+      {/* product image */}
+      <div>
+        <img src={product?.thumbnail} />
+      </div>
+    </div>
   )
 }
