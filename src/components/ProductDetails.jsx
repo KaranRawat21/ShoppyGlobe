@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./Rating";
-import { addToCart } from "../redux/slice/CartSlice";
+import { addToCart, decrement, increment } from "../redux/slice/CartSlice";
 
 export default function ProductDetails() {
 
@@ -14,10 +14,16 @@ export default function ProductDetails() {
     dispatch(addToCart({ id: product?.id, name: product?.title, thumbnail: product?.thumbnail, price: product?.price }))
   }
 
+  const handleIncrement = (product) => {
+    dispatch(increment({ id: product.id }))
+  }
+
+  const handleDecrement = (product) => {
+    dispatch(decrement({ id: product.id }))
+  }
+
   //Checks if the product is already added to cart or not
   const alreadyInCard = cartItems?.find(item => item?.id === product?.id);
-
-  console.log(alreadyInCard)
 
 
   return (
@@ -69,9 +75,13 @@ export default function ProductDetails() {
                 className=" w-full lg:w-[60%] bg-[#dc6a54] p-3 rounded-2xl text-white font-semibold cursor-pointer ">ADD TO CART</button>
             </div>
             : <div className="flex text-3xl">
-              <button className="bg-black px-4 rounded-sm text-white cursor-pointer">-</button>
-              <p className="px-6">{alreadyInCard.count}</p>
-              <button className="bg-black px-4 rounded-sm text-white cursor-pointer">+</button>
+              <button
+                onClick={() => handleDecrement(product)}
+                className="bg-black px-4 rounded-sm text-white cursor-pointer">-</button>
+              <p className="px-6 w-[100px] text-center">{alreadyInCard.count}</p>
+              <button
+                onClick={() => handleIncrement(product)}
+                className="bg-black px-4 rounded-sm text-white cursor-pointer">+</button>
             </div>
         }
 

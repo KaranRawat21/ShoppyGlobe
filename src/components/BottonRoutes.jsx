@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { AiOutlineProduct } from "react-icons/ai";
-import { IoPersonOutline } from "react-icons/io5";
 import { CiViewTimeline } from "react-icons/ci";
+import { CiShoppingCart } from "react-icons/ci";
+
 
 export default function BottonRoutes() {
   return (
@@ -28,11 +29,11 @@ export default function BottonRoutes() {
         }>
         <CiViewTimeline /></NavLink>
 
-      <NavLink to="/profile" className={({ isActive }) =>
+      <NavLink to="/cart" className={({ isActive }) =>
         `p-1 rounded-full transition-all duration-200 ${isActive ? "text-[#c436ff]" : "text-gray-600"
         } hover:text-[#c436ff]`
       }>
-        <IoPersonOutline /></NavLink>
+        <CiShoppingCart /></NavLink>
     </div>
   )
 }

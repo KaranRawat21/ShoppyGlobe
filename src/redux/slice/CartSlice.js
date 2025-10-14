@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: [{
-    id: 3,
-    name: "Powder Canister",
-    thumbnail: "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
-    count: 4,
-    price: 30
-  }]
+  cart: []
 }
 
 const cartSlice = createSlice({
@@ -23,9 +17,28 @@ const cartSlice = createSlice({
       } else {
         state.cart.push({ ...action.payload, count: 1 });
       }
+    }),
+    increment: ((state, action) => {
+      const product = state.cart.find(item => item.id === action.payload.id);
+      if (product) {
+        product.count++;
+      }
+    }),
+    decrement: ((state, action) => {
+      const product = state.cart.find(item => item.id === action.payload.id);
+
+      if (product) {
+        product.count--;
+
+        if (product.count < 1) {
+          state.cart = state.cart.filter(item => item.id !== action.payload.id);
+        }
+      }
+
     })
+
   }
 })
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, increment, decrement } = cartSlice.actions;
 export default cartSlice.reducer;

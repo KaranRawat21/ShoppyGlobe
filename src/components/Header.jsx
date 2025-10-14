@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { AiOutlineProduct } from "react-icons/ai";
 import { CiShoppingCart } from "react-icons/ci";
-import { IoPersonOutline } from "react-icons/io5";
 import { CiViewTimeline } from "react-icons/ci";
 
 
@@ -60,15 +59,6 @@ export default function Header() {
           <CiShoppingCart className=" text-3xl" />
           <div className=" hidden lg:block">CART</div>
         </NavLink>
-
-        <NavLink to="profile" className={({ isActive }) =>
-          `hidden lg:flex justify-center items-center gap-1 text-white bg-[#1c1b1b] p-3 rounded-md hover:bg-[#c436ff] transition ${isActive ? "bg-[#c436ff]" : ""
-          }`
-        }>
-          <IoPersonOutline className=" text-2xl" />
-          PROFILE
-        </NavLink>
-
 
       </div>
 
