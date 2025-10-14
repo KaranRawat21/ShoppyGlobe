@@ -11,7 +11,7 @@ export default function ProductDetails() {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart({ id: product?.id, name: product?.title, thumbnail: product?.thumbnail }))
+    dispatch(addToCart({ id: product?.id, name: product?.title, thumbnail: product?.thumbnail, price: product?.price }))
   }
 
 

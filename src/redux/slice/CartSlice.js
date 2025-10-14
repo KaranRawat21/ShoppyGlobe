@@ -5,7 +5,8 @@ const initialState = {
     id: 3,
     name: "Powder Canister",
     thumbnail: "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
-    count: 4
+    count: 4,
+    price: 30
   }]
 }
 
