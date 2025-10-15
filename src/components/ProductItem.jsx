@@ -25,7 +25,7 @@ export default function ProductItem({ product }) {
 
   return (
     <div
-      className=" w-[160px] md:w-[190px] md:min-h-[300px] bg-[#f8f8f9] p-4 rounded-2xl shadow-xl cursor-pointer flex flex-col gap-4">
+      className=" w-[160px] md:w-[190px] md:min-h-[300px] bg-[#f8f8f9] p-4 rounded-2xl shadow-xl cursor-pointer flex flex-col gap-4 hover:scale-105 transition-transform duration-200">
       <Link to={`/products/${product.id}`}>
         <div className=" border-b border-[#94979a]">
           <div>
