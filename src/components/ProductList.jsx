@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import NotFound from "./NotFound";
+import ErrorPage from "./ErrorPage";
 
 export default function ProductList() {
 
@@ -13,7 +14,7 @@ export default function ProductList() {
 
   const error = useSelector(state => state.allProducts.error);
 
-  console.log(error)
+  console.log(error);
 
   // ✅ Filter products by search
   const filteredProducts = products.filter(product =>
@@ -50,7 +51,7 @@ export default function ProductList() {
               }
 
             </div>
-          </> : <NotFound />
+          </> : <ErrorPage />
       }
 
 

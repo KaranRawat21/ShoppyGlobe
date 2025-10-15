@@ -23,8 +23,7 @@ export default function App() {
       const { data, error } = await fetchProducts(url);
 
       if (error) {
-        dispatch(setError(error));
-        console.log(error)
+        dispatch(setError({ error, message: "Something went wrong!" }));
       } else {
         dispatch(setProducts(data));
       }
