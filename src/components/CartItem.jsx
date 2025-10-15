@@ -13,7 +13,7 @@ export default function CartItem({ product }) {
   }
 
   return (
-    <div className=" flex items-center  bg-[#f8f8f9] shadow-2xl rounded-xl">
+    <div className=" flex items-center  bg-[#f8f8f9] shadow-2xl rounded-xl relative overflow-hidden">
 
       {/* product image */}
       <div>
@@ -43,6 +43,9 @@ export default function CartItem({ product }) {
             onClick={() => handleIncrement(product)}
             className="bg-black px-2 rounded-sm text-white cursor-pointer">+</button>
         </div>
+      </div>
+      <div className=" absolute bg-black text-white w-[100px] h-[100px] rotate-320 right-0 bottom-0 translate-14 cursor-pointer">
+        <p className=" absolute top-0 rotate-40 translate-x-10 text-xl">X</p>
       </div>
     </div>
   )

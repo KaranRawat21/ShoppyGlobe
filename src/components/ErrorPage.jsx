@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function ErrorPage({ error }) {
   return (
-    <div className="flex flex-col justify-center items-center h-[80vh] text-center p-6">
-      <h1 className="text-4xl font-bold text-red-500 mb-4">Something Went Wrong!</h1>
+    <div className="flex flex-col justify-center items-center h-[70vh] text-center p-6">
+      <h1 className="text-2xl md:text-4xl font-bold text-red-500 mb-4">Something Went Wrong!</h1>
 
       <p className="text-lg text-gray-600 mb-2">
         {error?.response?.status === 404
