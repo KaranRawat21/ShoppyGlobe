@@ -19,7 +19,7 @@ export default function Header() {
   return (
 
     //navbar
-    <nav className=" w-full flex justify-between items-center px-4  py-4 lg:py-2 shadow-xl ">
+    <nav className=" w-full flex justify-between items-center px-4  py-4 lg:py-2 shadow-xl z-100 ">
 
       {/* App-logo */}
       <img
