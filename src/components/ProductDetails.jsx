@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./Rating";
 import { addToCart, decrement, increment } from "../redux/slice/CartSlice";
+import { useEffect } from "react";
 
 export default function ProductDetails() {
 
@@ -25,6 +26,10 @@ export default function ProductDetails() {
   //Checks if the product is already added to cart or not
   const alreadyInCard = cartItems?.find(item => item?.id === product?.id);
 
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <div className=" md:pt-4  mb-[80px] flex flex-col md:flex-row">

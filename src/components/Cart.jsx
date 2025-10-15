@@ -1,10 +1,16 @@
 import { useSelector } from "react-redux"
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Cart() {
 
   const cartItems = useSelector(state => state.cartItems.cart);
+
+  //Save cart items in localStorage
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
 
   return (
