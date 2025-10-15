@@ -1,15 +1,19 @@
 import { useDispatch } from "react-redux"
-import { decrement, increment } from "../redux/slice/CartSlice";
+import { decrement, increment, removeProduct } from "../redux/slice/CartSlice";
 
 export default function CartItem({ product }) {
   const dispatch = useDispatch();
 
   const handleIncrement = (product) => {
     dispatch(increment({ id: product.id }))
-  }
+  };
 
   const handleDecrement = (product) => {
     dispatch(decrement({ id: product.id }))
+  };
+
+  const handleRemoveItem = (product) => {
+    dispatch(removeProduct({ id: product.id }))
   }
 
   return (
@@ -44,9 +48,11 @@ export default function CartItem({ product }) {
             className="bg-black px-2 rounded-sm text-white cursor-pointer">+</button>
         </div>
       </div>
-      <div className=" absolute bg-black text-white w-[100px] h-[100px] rotate-320 right-0 bottom-0 translate-14 cursor-pointer">
+      <button
+        onClick={() => handleRemoveItem(product)}
+        className=" absolute bg-black text-white w-[100px] h-[100px] rotate-320 right-0 bottom-0 translate-14 cursor-pointer">
         <p className=" absolute top-0 rotate-40 translate-x-10 text-xl">X</p>
-      </div>
+      </button>
     </div>
   )
 }

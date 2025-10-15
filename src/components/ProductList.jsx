@@ -43,9 +43,9 @@ export default function ProductList() {
                   ))
                 ) : (
                   <div className="flex justify-center items-center w-full col-span-full">
-                    <p className="text-gray-500 text-lg font-medium">
+                    {!error ? <p className="text-gray-500 text-lg font-medium">
                       No products found!
-                    </p>
+                    </p> : ""}
                   </div>
                 )
               }
