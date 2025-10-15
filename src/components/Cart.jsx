@@ -33,7 +33,7 @@ export default function Cart() {
       }
 
       {cartItems.length > 0 && <Link
-        to="/checkout"
+        to="/checkout/details"
         className=" bg-[#dc6a54] px-10 py-3 font-bold text-white rounded-md cursor-pointer mb-[80px] ">Checkout</Link>}
 
 

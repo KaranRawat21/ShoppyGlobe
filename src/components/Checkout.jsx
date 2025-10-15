@@ -28,7 +28,7 @@ export default function Checkout() {
           <p className="text-center w-1/3">Quantity</p>
           <p className="text-center w-1/3">Price</p>
         </div>
-        <div className=" flex flex-col gap-3 overflow-x-auto h-[50vh] ">
+        <div className=" flex flex-col gap-3 overflow-x-auto max-h-[50vh] ">
           {cartItems.map((item) => (
             <div
               key={item.id}
