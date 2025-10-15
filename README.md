@@ -25,10 +25,11 @@ Users can browse products, view product details, manage a cart, and proceed with
 
 ## Tech Used
 
-UI----> **React**
-Routing----> **React Router** (using `createBrowserRouter`)
-Styling----> **Tailwind CSS**
-Build Tool----> **Vite**
-Hosting----> **Vercel**
+-UI----> **React**
+-Routing----> **React Router** (using `createBrowserRouter`)
+-State Management----> **Redux-toolkit**
+-Styling----> **Tailwind CSS**
+-Build Tool----> **Vite**
+-Hosting----> **Vercel**
 
 Created by: Karan Rawat
