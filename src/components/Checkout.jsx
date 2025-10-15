@@ -36,7 +36,7 @@ export default function Checkout() {
           >
             <p className="text-center w-1/3">{item.name}</p>
             <p className="text-center w-1/3">{item.count}</p>
-            <p className="text-center w-1/3">${item.count * item.price}</p>
+            <p className="text-center w-1/3">${parseInt(item.count * item.price)}</p>
           </div>
         ))}
 
