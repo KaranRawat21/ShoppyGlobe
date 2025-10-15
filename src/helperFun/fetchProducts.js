@@ -6,7 +6,7 @@ const fetchProducts = async (url) => {
     return { data: response.data.products, error: null };
 
   } catch (err) {
-    return { data: null, error: "Something went wrong while fetching products." }
+    return { data: null, error: err, message: "Something went wrong!" }
   }
 }
 
