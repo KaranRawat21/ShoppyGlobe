@@ -1,60 +1,102 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './components/App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import NotFound from './components/NotFound.jsx'
-import Home from './components/Home.jsx'
-import ProductList from './components/ProductList.jsx'
-import Cart from './components/Cart.jsx'
-import About from './components/About.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
-import ProductDetails from './components/ProductDetails.jsx'
-import Checkout from './components/Checkout.jsx'
-import CheckoutForm from './components/CheckoutForm.jsx'
+import React, { Suspense } from 'react'
+
+
+// 👇 Lazy load components
+const App = React.lazy(() => import('./components/App.jsx'))
+const NotFound = React.lazy(() => import('./components/NotFound.jsx'))
+const Home = React.lazy(() => import('./components/Home.jsx'))
+const ProductList = React.lazy(() => import('./components/ProductList.jsx'))
+const Cart = React.lazy(() => import('./components/Cart.jsx'))
+const About = React.lazy(() => import('./components/About.jsx'))
+const ProductDetails = React.lazy(() => import('./components/ProductDetails.jsx'))
+const Checkout = React.lazy(() => import('./components/Checkout.jsx'))
+const CheckoutForm = React.lazy(() => import('./components/CheckoutForm.jsx'))
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Suspense fallback={<div className="text-center mt-10">Loading...</div>}>
+        <App />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<div>Loading Home...</div>}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "products",
-        element: <ProductList />
+        element: (
+          <Suspense fallback={<div>Loading Products...</div>}>
+            <ProductList />
+          </Suspense>
+        )
       },
       {
         path: "about",
-        element: <About />
+        element: (
+          <Suspense fallback={<div>Loading About...</div>}>
+            <About />
+          </Suspense>
+        )
       },
       {
         path: "cart",
-        element: <Cart />
+        element: (
+          <Suspense fallback={<div>Loading Cart...</div>}>
+            <Cart />
+          </Suspense>
+        )
       },
       {
         path: "products/:id",
-        element: <ProductDetails />
+        element: (
+          <Suspense fallback={<div>Loading Product...</div>}>
+            <ProductDetails />
+          </Suspense>
+        )
       },
       {
         path: "checkout",
-        element: <Checkout />
+        element: (
+          <Suspense fallback={<div>Loading Checkout...</div>}>
+            <Checkout />
+          </Suspense>
+        )
       },
       {
         path: "checkout/details",
-        element: <CheckoutForm />
+        element: (
+          <Suspense fallback={<div>Loading Checkout Details...</div>}>
+            <CheckoutForm />
+          </Suspense>
+        )
       }
     ]
   },
   {
     path: "*",
-    element: <NotFound />
+    element: (
+      <Suspense fallback={<div>Page Not Found...</div>}>
+        <NotFound />
+      </Suspense>
+    )
   }
 
 ])
 
+//Render the app
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <RouterProvider router={router} />
