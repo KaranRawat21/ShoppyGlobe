@@ -4,6 +4,7 @@ const initialState = {
   error: null,
   products: [],
   loading: false,
+  searchTerm: "",
 }
 
 const prouductsSlice = createSlice({
@@ -21,10 +22,13 @@ const prouductsSlice = createSlice({
     setError: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    }
+    },
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
+    },
 
   }
 });
 
-export const { setProducts, setLoading, setError } = prouductsSlice.actions;
+export const { setProducts, setLoading, setError, setSearchTerm } = prouductsSlice.actions;
 export default prouductsSlice.reducer;

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
+import SearchBar from "./SearchBar";
 
 export default function ProductList() {
 
@@ -7,20 +8,38 @@ export default function ProductList() {
 
   const productLoading = useSelector(state => state.allProducts.loading);
 
+  const searchTerm = useSelector(state => state.allProducts.searchTerm);
+
+  // ✅ Filter products by search
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
   return (
-    <div className=" pt-12 Sp-2 flex justify-center mb-[80px] ">
+    <div className="w-full pt-12 Sp-2 flex flex-col mb-[80px] items-center ">
+      <SearchBar />
       <div className="grid gap-6 
                   grid-cols-2 
                   sm:grid-cols-3 
                   md:grid-cols-3 
                   lg:grid-cols-5 
-                  xl:grid-cols-6">
+                  xl:grid-cols-6
+                  ">
         {
-          products.map(product => (
-            <ProductItem product={product} key={product.id} />
-          ))
+          filteredProducts.length > 0 ? (
+            filteredProducts.map(product => (
+              <ProductItem product={product} key={product.id} />
+            ))
+          ) : (
+            <div className="flex justify-center items-center w-full col-span-full">
+              <p className="text-gray-500 text-lg font-medium">
+                No products found!
+              </p>
+            </div>
+          )
         }
+
       </div>
     </div>
   )
