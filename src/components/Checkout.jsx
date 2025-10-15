@@ -19,8 +19,8 @@ export default function Checkout() {
 
 
   return (
-    <div className="relative w-[99vw] mb-[80px]">
-      <div className="pt-6 p-4 w-full flex flex-col items-center gap-4">
+    <div className="relative w-[99vw] mb-[60px] lg:mb-0 ">
+      <div className="pt-6 p-4 w-full flex flex-col items-center gap-4 ">
         <h1 className="text-2xl font-semibold">ORDER SUMMARY</h1>
 
         <div className="flex justify-between font-semibold text-sm w-[350px]">
@@ -28,17 +28,18 @@ export default function Checkout() {
           <p className="text-center w-1/3">Quantity</p>
           <p className="text-center w-1/3">Price</p>
         </div>
-
-        {cartItems.map((item) => (
-          <div
-            key={item.id}
-            className="flex justify-between items-center text-gray-600 text-sm bg-[#ededed] p-2 rounded-md w-[350px]"
-          >
-            <p className="text-center w-1/3">{item.name}</p>
-            <p className="text-center w-1/3">{item.count}</p>
-            <p className="text-center w-1/3">${parseInt(item.count * item.price)}</p>
-          </div>
-        ))}
+        <div className=" flex flex-col gap-3 overflow-x-auto h-[50vh] ">
+          {cartItems.map((item) => (
+            <div
+              key={item.id}
+              className="flex justify-between items-center text-gray-600 text-sm bg-[#ededed] p-2 rounded-md w-[350px]"
+            >
+              <p className="text-center w-1/3">{item.name}</p>
+              <p className="text-center w-1/3">{item.count}</p>
+              <p className="text-center w-1/3">${parseInt(item.count * item.price)}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="w-[350px] border-t mt-4 p-4 flex flex-col gap-6">
           <div className="flex justify-between">
@@ -59,7 +60,7 @@ export default function Checkout() {
 
       {/* Order Confirmed PopUp */}
       {orderConfirmedPopUp && (
-        <div className="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center">
+        <div className="absolute  inset-0 bg-white bg-opacity-70 flex items-center justify-center">
           <div className="bg-white p-6 rounded-2xl shadow-xl text-center w-[300px]">
             <h2 className="text-xl font-semibold text-green-600">Order Confirmed!</h2>
             <p className="text-gray-600 my-4 ">Thank you for your purchase.</p>
